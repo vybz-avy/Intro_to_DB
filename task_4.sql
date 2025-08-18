@@ -1,0 +1,21 @@
+-- task_4.sql
+
+SELECT 
+    COLUMN_NAME,
+    COLUMN_TYPE,
+    IS_NULLABLE,
+    COLUMN_KEY,
+    EXTRA,
+    COLUMN_DEFAULT,
+    CHARACTER_MAXIMUM_LENGTH,
+    NUMERIC_PRECISION,
+    NUMERIC_SCALE,
+    COLUMN_COMMENT
+FROM 
+    INFORMATION_SCHEMA.COLUMNS
+WHERE 
+    TABLE_SCHEMA = DATABASE()
+    AND TABLE_NAME = 'books'
+ORDER BY 
+    ORDINAL_POSITION;
+    mysql -D your_database_name -e "$(cat task_4.sql)"
